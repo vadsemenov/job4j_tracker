@@ -74,4 +74,15 @@ public class TrackerTest {
         tracker.replace(id, bugWithDesc);
         Assert.assertEquals(tracker.findById(id).getName(), "Bug with description");
     }
+
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = bug.getId();
+        boolean isTrue = tracker.delete(id);
+        Assert.assertEquals(tracker.findById(id), null);
+    }
 }
