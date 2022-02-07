@@ -4,24 +4,24 @@ import java.util.Scanner;
 
 public class Matches {
     public static void main(String[] args) {
-        int spi4ki = 11;
+        int count = 11;
         String winer = "";
         int select;
+        boolean turn = true;
         Scanner input = new Scanner(System.in);
 
-        while (spi4ki > 0) {
-            winer = "Игрок 1";
-            System.out.println("Игрок 1 введите колличество спичек от 1 до 3:");
-            select = Integer.valueOf(input.nextLine());
-            spi4ki -= select;
-            System.out.println("На столе осталось спичек " + spi4ki);
-
-            winer = "Игрок 2";
-            System.out.println("Игрок 2 введите колличество спичек от 1 до 3:");
-            select = Integer.valueOf(input.nextLine());
-            spi4ki -= select;
-            System.out.println("На столе осталось спичек " + spi4ki);
+        while (count > 0) {
+            String player = turn ? "Первый игрок" : "Второй игрок";
+            System.out.println(player + " введите число от 1 до 3:");
+            int matches = Integer.parseInt(input.nextLine());
+            turn = !turn;
+            count -= matches;
+            System.out.println("На столе осталось спичек " + count);
         }
-        System.out.println("Победитель " + winer + "!");
+        if (!turn) {
+            System.out.println("Выиграл первый игрок");
+        } else {
+            System.out.println("Выиграл второй игрок");
+        }
     }
 }
