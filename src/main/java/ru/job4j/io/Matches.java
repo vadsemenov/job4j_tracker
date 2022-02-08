@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Matches {
     public static void main(String[] args) {
         int count = 11;
-        String winer = "";
-        int select;
         boolean turn = true;
         Scanner input = new Scanner(System.in);
 
